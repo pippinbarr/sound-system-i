@@ -1,18 +1,20 @@
-# Sound System I
+# *Sound System I*
 
-## Warning: Flash
+![Banner](images/sound-system-i-banner.png)
 
-This game was exported in Flash and, as you probably know, Flash has been discontinued. As such, I can only provide access to the source code and the `.swf` file at the moment.
-
-If you happen to have an ancient computer that still runs Flash in the browser, or a copy of the Adobe Flash Standalone Player, you should be able to run the game.
-
-At some point I may port the game to JavaScript or similar, and it's possible that the [ruffle](https://ruffle.rs/) Flash emulator will get to a point where this game will run again. Let's see.
-
-## Links
-* [The original .swf file](https://github.com/pippinbarr/sound-system-i/releases/download/v1.0/SoundSystemI.swf)
-* [Code repository](https://github.com/pippinbarr/sound-system-i)
+## [Play Online](https://www.pippinbarr.com/sound-system-i/web/) (HTML5, not mobile-friendly)
+## ~~[Download for Mac](https://github.com/pippinbarr/sound-system-i/releases/tag/mac)~~
+## ~~[Download for Windows](https://github.com/pippinbarr/sound-system-i/releases/tag/windows)~~
 
 ## Description
-Sound System I was written in [Haxe](http://haxe.org/) using the [HaxeFlixel](http://www.haxeflixel.com/) library. The images used are by William Turner. The sounds used are a combination of Audacity-generated tones and synth and drum-machine samples.
+Originally released on 3 February 2015, *Sound System I* was written in [Haxe](http://haxe.org/) using the [HaxeFlixel](http://www.haxeflixel.com/) library. The images used are by William Turner. The sounds used are a combination of Audacity-generated tones and synth and drum-machine samples.
 
-Sound System I was covered by [Kill Screen](https://killscreen.com/previously/articles/pippin-barr/).
+## Press
+*Sound System I* was covered by [Kill Screen](https://killscreen.com/previously/articles/pippin-barr/).
+
+## Documentation
+* Check out the [code repository](https://github.com/pippinbarr/sound-system-i) (includes the original HaxeFlixel project and a new one I've been using to update the exports to HTML5, Mac, and Windows)
+* Read the [process documentation](../process/) to get some insight into what I was thinking about while making the game
+* Download the [the original .swf file](https://github.com/pippinbarr/sound-system-i/releases/tag/swf/) if you want
+
+## License

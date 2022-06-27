@@ -158,13 +158,13 @@ class ProtoState extends FlxState
 		var bg:FlxSprite = new FlxSprite(ORIGIN_X, ORIGIN_Y, AssetPaths.bg1__jpg);
 		// var bg:FlxSprite = new FlxSprite(ORIGIN_X, ORIGIN_Y, "assets/images/bgs/bg1-" + RESOLUTION + ".jpg");
 
-		oneCircle1 = new Circle(ORIGIN_X, ORIGIN_Y, ORIGIN_X + FlxG.width / 2, ORIGIN_Y + FlxG.height / 2, 0, AssetPaths.circle_cyan__png, "", false, false,
+		oneCircle1 = new Circle(ORIGIN_X, ORIGIN_Y, ORIGIN_X + FlxG.width / 2, ORIGIN_Y + FlxG.height / 2, 0, AssetPaths.circle_cyan__png, null, false, false,
 			false);
 
-		var leftWall:ToneWall = new ToneWall(ORIGIN_X + -100, ORIGIN_Y + 0, 100, FlxG.height, AssetPaths.ArpAA1short__mp3);
-		var rightWall:ToneWall = new ToneWall(ORIGIN_X + FlxG.width, ORIGIN_Y + 0, 100, FlxG.height, AssetPaths.ArpAB1short__mp3);
-		var topWall:ToneWall = new ToneWall(ORIGIN_X + -100, ORIGIN_Y + -100, FlxG.width + 200, 100, AssetPaths.ArpAD1short__mp3);
-		var bottomWall:ToneWall = new ToneWall(ORIGIN_X + -100, ORIGIN_Y + FlxG.height, FlxG.width + 200, 100, AssetPaths.ArpAE1short__mp3);
+		var leftWall:ToneWall = new ToneWall(ORIGIN_X + -100, ORIGIN_Y + 0, 100, FlxG.height, AssetPaths.ArpAA1short__wav);
+		var rightWall:ToneWall = new ToneWall(ORIGIN_X + FlxG.width, ORIGIN_Y + 0, 100, FlxG.height, AssetPaths.ArpAB1short__wav);
+		var topWall:ToneWall = new ToneWall(ORIGIN_X + -100, ORIGIN_Y + -100, FlxG.width + 200, 100, AssetPaths.ArpAD1short__wav);
+		var bottomWall:ToneWall = new ToneWall(ORIGIN_X + -100, ORIGIN_Y + FlxG.height, FlxG.width + 200, 100, AssetPaths.ArpAE1short__wav);
 
 		var title:FlxText = new FlxText(ORIGIN_X, ORIGIN_Y + 128, FlxG.width, "I.");
 		title.setFormat(null, 64, 0xFF000000, "center");
@@ -196,10 +196,22 @@ class ProtoState extends FlxState
 
 		var bg:FlxSprite = new FlxSprite(ORIGIN_X, ORIGIN_Y, AssetPaths.bg2__jpg);
 
-		twoCircle1 = new Circle(ORIGIN_X, ORIGIN_Y, ORIGIN_X + 1 * FlxG.width / 3, ORIGIN_Y + FlxG.height / 2, 0, AssetPaths.circle_cyan__png,
-			"assets/sounds/ArpB", false, true, true);
-		twoCircle2 = new Circle(ORIGIN_X, ORIGIN_Y, ORIGIN_X + 2 * FlxG.width / 3, ORIGIN_Y + FlxG.height / 2, 0, AssetPaths.circle_magenta__png,
-			"assets/sounds/ArpB", false, true, true);
+		var ArpBArray:Array<String> = [
+			AssetPaths.ArpBD1__wav,
+			AssetPaths.ArpBE1__wav,
+			AssetPaths.ArpBFS1__wav,
+			AssetPaths.ArpBA2__wav,
+			AssetPaths.ArpBB2__wav,
+			AssetPaths.ArpBD2__wav,
+			AssetPaths.ArpBE2__wav,
+			AssetPaths.ArpBFS2__wav,
+			AssetPaths.ArpBA3__wav
+		];
+
+		twoCircle1 = new Circle(ORIGIN_X, ORIGIN_Y, ORIGIN_X + 1 * FlxG.width / 3, ORIGIN_Y + FlxG.height / 2, 0, AssetPaths.circle_cyan__png, ArpBArray,
+			false, true, true);
+		twoCircle2 = new Circle(ORIGIN_X, ORIGIN_Y, ORIGIN_X + 2 * FlxG.width / 3, ORIGIN_Y + FlxG.height / 2, 0, AssetPaths.circle_magenta__png, ArpBArray,
+			false, true, true);
 
 		createWalls(ORIGIN_X, ORIGIN_Y);
 
@@ -240,11 +252,11 @@ class ProtoState extends FlxState
 		var bg:FlxSprite = new FlxSprite(ORIGIN_X, ORIGIN_Y, AssetPaths.bg3__jpg);
 
 		threeCircle1 = new Circle(ORIGIN_X, ORIGIN_Y, ORIGIN_X + FlxG.width / 4, ORIGIN_Y + FlxG.height / 2, 0, AssetPaths.circle_cyan__png,
-			AssetPaths.kick1__mp3, true, false, false);
+			[AssetPaths.kick1__wav], true, false, false);
 		threeCircle2 = new Circle(ORIGIN_X, ORIGIN_Y, ORIGIN_X + 2 * FlxG.width / 4, ORIGIN_Y + FlxG.height / 2, 0, AssetPaths.circle_magenta__png,
-			AssetPaths.kick2__mp3, true, false, false);
+			[AssetPaths.kick2__wav], true, false, false);
 		threeCircle3 = new Circle(ORIGIN_X, ORIGIN_Y, ORIGIN_X + 3 * FlxG.width / 4, ORIGIN_Y + FlxG.height / 2, 0, AssetPaths.circle_yellow__png,
-			AssetPaths.snare1__mp3, true, false, false);
+			[AssetPaths.snare1__wav], true, false, false);
 
 		createWalls(ORIGIN_X, ORIGIN_Y);
 
@@ -289,14 +301,32 @@ class ProtoState extends FlxState
 
 		var bg:FlxSprite = new FlxSprite(ORIGIN_X, ORIGIN_Y, AssetPaths.bg4__jpg);
 
-		fourCircle1 = new Circle(ORIGIN_X, ORIGIN_Y, ORIGIN_X + FlxG.width / 5, ORIGIN_Y + FlxG.height / 2, 0, AssetPaths.circle_cyan__png,
-			"assets/sounds/boop", false, true, false);
-		fourCircle2 = new Circle(ORIGIN_X, ORIGIN_Y, ORIGIN_X + 2 * FlxG.width / 5, ORIGIN_Y + FlxG.height / 2, 0, AssetPaths.circle_magenta__png,
-			"assets/sounds/boop", false, true, false);
-		fourCircle3 = new Circle(ORIGIN_X, ORIGIN_Y, ORIGIN_X + 3 * FlxG.width / 5, ORIGIN_Y + FlxG.height / 2, 0, AssetPaths.circle_yellow__png,
-			"assets/sounds/boop", false, true, false);
-		fourCircle4 = new Circle(ORIGIN_X, ORIGIN_Y, ORIGIN_X + 4 * FlxG.width / 5, ORIGIN_Y + FlxG.height / 2, 0, AssetPaths.circle_black__png,
-			"assets/sounds/boop", false, true, false);
+		// tones.push(new FlxSound().loadEmbedded(S + "D1.wav", false));
+		// tones.push(new FlxSound().loadEmbedded(S + "E1.wav", false));
+		// tones.push(new FlxSound().loadEmbedded(S + "FS1.wav", false));
+		// tones.push(new FlxSound().loadEmbedded(S + "A2.wav", false));
+		// tones.push(new FlxSound().loadEmbedded(S + "B2.wav", false));
+		// tones.push(new FlxSound().loadEmbedded(S + "D2.wav", false));
+		// tones.push(new FlxSound().loadEmbedded(S + "E2.wav", false));
+		// tones.push(new FlxSound().loadEmbedded(S + "FS2.wav", false));
+		// tones.push(new FlxSound().loadEmbedded(S + "A3.wav", false));
+
+		var boopArray:Array<String> = [
+			AssetPaths.boopE1__wav,
+			AssetPaths.boopFS1__wav,
+			AssetPaths.boopD2__wav,
+			AssetPaths.boopE2__wav,
+			AssetPaths.boopFS2__wav,
+		];
+
+		fourCircle1 = new Circle(ORIGIN_X, ORIGIN_Y, ORIGIN_X + FlxG.width / 5, ORIGIN_Y + FlxG.height / 2, 0, AssetPaths.circle_cyan__png, boopArray, false,
+			true, false);
+		fourCircle2 = new Circle(ORIGIN_X, ORIGIN_Y, ORIGIN_X + 2 * FlxG.width / 5, ORIGIN_Y + FlxG.height / 2, 0, AssetPaths.circle_magenta__png, boopArray,
+			false, true, false);
+		fourCircle3 = new Circle(ORIGIN_X, ORIGIN_Y, ORIGIN_X + 3 * FlxG.width / 5, ORIGIN_Y + FlxG.height / 2, 0, AssetPaths.circle_yellow__png, boopArray,
+			false, true, false);
+		fourCircle4 = new Circle(ORIGIN_X, ORIGIN_Y, ORIGIN_X + 4 * FlxG.width / 5, ORIGIN_Y + FlxG.height / 2, 0, AssetPaths.circle_black__png, boopArray,
+			false, true, false);
 
 		createWalls(ORIGIN_X, ORIGIN_Y);
 

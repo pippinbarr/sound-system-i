@@ -42,8 +42,8 @@ class Circle extends PhysicsSprite
 
 	private var pulseState:PulseState = NONE;
 
-	public function new(OriginX:Float, OriginY:Float, X:Float, Y:Float, C:Int, Sprite:String, S:String = "", Impact:Bool = true, Location:Bool = false,
-			Constant:Bool = false):Void
+	public function new(OriginX:Float, OriginY:Float, X:Float, Y:Float, C:Int, Sprite:String, Sounds:Array<String> = null, Impact:Bool = true,
+			Location:Bool = false, Constant:Bool = false):Void
 	{
 		super(Std.int(X), Std.int(Y), Sprite, true, true);
 
@@ -61,21 +61,16 @@ class Circle extends PhysicsSprite
 		this.constant = Constant;
 
 		tones = new Array();
-		if (S != "" && !impact)
+		if (Sounds != null && !impact)
 		{
-			tones.push(new FlxSound().loadEmbedded(S + "D1.mp3", false));
-			tones.push(new FlxSound().loadEmbedded(S + "E1.mp3", false));
-			tones.push(new FlxSound().loadEmbedded(S + "FS1.mp3", false));
-			tones.push(new FlxSound().loadEmbedded(S + "A2.mp3", false));
-			tones.push(new FlxSound().loadEmbedded(S + "B2.mp3", false));
-			tones.push(new FlxSound().loadEmbedded(S + "D2.mp3", false));
-			tones.push(new FlxSound().loadEmbedded(S + "E2.mp3", false));
-			tones.push(new FlxSound().loadEmbedded(S + "FS2.mp3", false));
-			tones.push(new FlxSound().loadEmbedded(S + "A3.mp3", false));
+			for (soundPath in Sounds)
+			{
+				tones.push(new FlxSound().loadEmbedded(soundPath, false));
+			}
 		}
-		else if (S != "")
+		else if (Sounds != null)
 		{
-			this.sound = new FlxSound().loadEmbedded(S, false);
+			this.sound = new FlxSound().loadEmbedded(Sounds[0], false);
 		}
 
 		this.antialiasing = true;
@@ -157,7 +152,10 @@ class Circle extends PhysicsSprite
 
 		// trace("Trying to play tone " + tone + " which is " + tones[tone]);
 		if (tones[tone] != null)
-			tones[tone].play();
+		{
+			// tones[tone].play();
+			tones[tone].play(true);
+		}
 		pulse();
 
 		new FlxTimer().start(0.2 + ((this.y - originY + this.height / 2) / FlxG.height) * 4, soundFinished);
@@ -174,19 +172,23 @@ class Circle extends PhysicsSprite
 	{
 		if (playing != -1 && tones[playing].playing)
 			return;
-		var tone:Int = Std.int(((this.x - originX) / FlxG.width) * 9);
 
-		tones[tone].play(true);
+		var index:Int = Math.floor(((this.x - originX) / FlxG.width) * tones.length);
+
+		trace(index);
+
+		tones[index].play(true);
 		pulse();
 
-		playing = tone;
+		playing = index;
 	}
 
 	override public function handleImpact(Impact:Int, OtherSprite:PhysicsSprite):Void
 	{
 		if (this.sound != null && this.impact)
 		{
-			this.sound.play();
+			// this.sound.play();
+			this.sound.play(true);
 			pulse();
 		}
 	}

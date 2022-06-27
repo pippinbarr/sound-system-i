@@ -3,8 +3,8 @@
 ![Banner](images/sound-system-i-banner.png)
 
 ## [Play Online](https://www.pippinbarr.com/sound-system-i/web/) (HTML5, not mobile-friendly)
-## ~~[Download for Mac](https://github.com/pippinbarr/sound-system-i/releases/tag/mac)~~
-## ~~[Download for Windows](https://github.com/pippinbarr/sound-system-i/releases/tag/windows)~~
+## [Download for Mac](https://github.com/pippinbarr/sound-system-i/releases/tag/mac)
+## [Download for Windows](https://github.com/pippinbarr/sound-system-i/releases/tag/windows)
 
 ## Description
 Originally released on 3 February 2015, *Sound System I* was written in [Haxe](http://haxe.org/) using the [HaxeFlixel](http://www.haxeflixel.com/) library. The images used are by William Turner. The sounds used are a combination of Audacity-generated tones and synth and drum-machine samples.

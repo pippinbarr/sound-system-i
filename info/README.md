@@ -20,3 +20,5 @@ In June of 2022 I was finally able to convince HaxeFlixel to rebuild the game as
 * Download the [the original .swf file](https://github.com/pippinbarr/sound-system-i/releases/tag/swf/) if you want
 
 ## License
+*Sound System I* is licensed under a [Creative Commons Attribution-NonCommercial 3.0 Unported License](http://creativecommons.org/licenses/by-nc/3.0/).
+ 
